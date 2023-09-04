@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->timestamp("created_at");
             $table->string("name", 45);
             $table->string("email", 45);
             $table->string("password", 45);
-            $table->string("wallet", 45);
-            $table->binary("isAdmin");
-            $table->foreign("NFT_id");
+            $table->string("wallet", 45)->nullable();
+            $table->boolean("isAdmin")->nullable();
+            $table->unsignedBigInteger("nft_id");
+            $table->foreign('nft_id')->references('id')->on('users')->nullable();
         });
     }
 

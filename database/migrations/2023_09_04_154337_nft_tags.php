@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nft_tags', function (Blueprint $table) {
-            $table->foreign("nft_id")->references("id")->on("nfts");
-            $table->foreign("tags_id")->references("id")->on("tags");
+            $table->unsignedBigInteger("nft_id");
+            $table->unsignedBigInteger("tag_id");
+            $table->foreign("nft_id")->references("id")->on("nfts")->nullable();
+            $table->foreign("tag_id")->references("id")->on("tags")->nullable();
         });
     }
 
