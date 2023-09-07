@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nfts_tags', function (Blueprint $table) {
-            $table->unsignedBigInteger("nft_id");
-            $table->unsignedBigInteger("tag_id");
+            $table->unsignedBigInteger("nft_id")->nullable();
+            $table->unsignedBigInteger("tag_id")->nullable();
             $table->foreign("nft_id")->references("id")->on("nfts")->nullable();
             $table->foreign("tag_id")->references("id")->on("tags")->nullable();
         });
@@ -24,6 +24,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nft_tags');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('nfts_tags');
+        Schema::enableForeignKeyConstraints();
     }
 };

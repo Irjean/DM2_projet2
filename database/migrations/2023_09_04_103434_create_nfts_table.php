@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string("title", 45);
             $table->string("artist", 45);
-            $table->string("description", 255);
+            $table->longtext("description");
             $table->string("adress", 255);
             $table->string("standard_token", 10);
             $table->float("price");
             $table->string("image", 255);
+            $table->unsignedBigInteger("user_id")->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->nullable();
         });
     }
 
@@ -28,6 +30,8 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('nfts');
+        Schema::enableForeignKeyConstraints();
     }
 };

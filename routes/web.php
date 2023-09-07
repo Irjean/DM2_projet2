@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $nfts = DB::table("nfts")->get();
+
+    return view('home', ["nfts" => $nfts]);
 });
+
+Route::get("/nft/{id}", function () {
+    //return view ('home');
+});
+
+Route::get("/login", function () {
+    return view("login");
+});
+
+Route::post("/login", [UserController::class, 'authenticate']);
+
+Route::get("/logout", [UserController::class, 'logout']);

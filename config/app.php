@@ -5,6 +5,8 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+    'DB' => Illuminate\Support\Facades\DB::class,
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

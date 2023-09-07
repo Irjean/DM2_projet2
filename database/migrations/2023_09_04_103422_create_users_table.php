@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->timestamp("created_at");
             $table->string("name", 45);
             $table->string("email", 45);
-            $table->string("password", 45);
-            $table->string("wallet", 45)->nullable();
+            $table->string("password", 255);
+            $table->float("wallet")->nullable();
             $table->boolean("isAdmin")->nullable();
-            $table->unsignedBigInteger("nft_id");
-            $table->foreign('nft_id')->references('id')->on('users')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -29,6 +27,8 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('users');
+        Schema::enableForeignKeyConstraints();
     }
 };
