@@ -26,7 +26,7 @@ header{
 }
 
 header nav{
-    width: 190px;
+    width: 2200px;
     height: 100%;
 }
 
@@ -43,6 +43,10 @@ header ul{
 
 header ul li{
     height: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
 }
 
 header ul li a img{

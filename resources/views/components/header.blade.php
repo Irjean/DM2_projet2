@@ -1,10 +1,13 @@
 <header>
-    <a href="./" class="home-img-link">
+    <a href="/" class="home-img-link">
         <img src="{{asset("./images/nft-market-logo.png")}}" alt="logo">
     </a>
     <nav>
         <ul>
             @auth
+                <li>
+                    {{Auth::user()->wallet}} ETH
+                </li>
                 <li>
                     <a href="/collection">
                         <img src="{{asset("/images/collection-icon2.png")}}" alt="collection">

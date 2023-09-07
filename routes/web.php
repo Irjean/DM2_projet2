@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NftController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -15,15 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $nfts = DB::table("nfts")->get();
+Route::get('/', [NftController::class, "getAll"]);
 
-    return view('home', ["nfts" => $nfts]);
-});
+Route::get("/nft/{id}", [NftController::class, "getOne"]);
 
-Route::get("/nft/{id}", function () {
-    //return view ('home');
-});
+Route::get("/nft/{id}/buy", [NftController::class, "buyNft"]);
 
 Route::get("/login", function () {
     return view("login", ["cssLink" => "css/auth.css"]);

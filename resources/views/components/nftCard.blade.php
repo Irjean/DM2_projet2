@@ -1,4 +1,4 @@
-<a class="nft-card" href="">
+<a class="nft-card" href="/nft/{{$nft->id}}">
     <img class="nft-img" src="{{asset($nft->image)}}" alt="Nft">
     <div class="nft-info">
         <h3>{{$nft->title}}</h3>

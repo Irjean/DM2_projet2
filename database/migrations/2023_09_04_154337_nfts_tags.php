@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger("tag_id")->nullable();
             $table->foreign("nft_id")->references("id")->on("nfts")->nullable();
             $table->foreign("tag_id")->references("id")->on("tags")->nullable();
+            $table->timestamps();
         });
     }
 

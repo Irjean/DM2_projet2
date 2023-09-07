@@ -1,0 +1,52 @@
+#nft-detail{
+    background-color: white;
+    border: 5px solid red;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 20px 0;
+    width: 50%;
+}
+
+#nft-detail p{
+    width: 50%;
+}
+
+#nft-detail span, #nft-detail p{
+    font-size: 1.2rem;
+}
+
+#nft-detail img{
+    max-height: 50vh;
+}
+
+.buy-btn{
+    padding: 3px 25px;
+    background-color: pink;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buy-btn:hover{
+    scale: 1.1;
+    background-color: rgb(248, 172, 185);
+    transition: 0.2s;
+}
+
+.disabled{
+    background-color: gray;
+    color: black;
+    cursor: auto;
+}
+
+.disabled:hover{
+    background-color: gray;
+    scale: 1;
+}
