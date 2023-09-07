@@ -1,0 +1,48 @@
+#login-section, #register-section{
+    background-color: white;
+    width: 30%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: 5px solid red;
+    border-radius: 10px;
+    padding: 30px 0;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+    width: 30%;
+}
+
+.error-message{
+    color: red;
+    text-align: left;
+}
+
+.success-message{
+    color: green;
+    text-align: left;
+}
+
+form button{
+    padding: 3px 15px;
+    background-color: #e3bbf9;
+    border: 1px solid #e3bbf9;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+form button:hover{
+    background-color: #e0a7ff;
+    scale: 1.1;
+}

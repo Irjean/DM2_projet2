@@ -26,9 +26,15 @@ Route::get("/nft/{id}", function () {
 });
 
 Route::get("/login", function () {
-    return view("login");
+    return view("login", ["cssLink" => "css/auth.css"]);
 });
 
 Route::post("/login", [UserController::class, 'authenticate']);
 
 Route::get("/logout", [UserController::class, 'logout']);
+
+Route::get("register", function () {
+    return view("register", ["cssLink" => 'css/auth.css']);
+});
+
+Route::post("register", [UserController::class, "register"]);
