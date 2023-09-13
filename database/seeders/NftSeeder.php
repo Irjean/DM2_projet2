@@ -14,7 +14,7 @@ class NftSeeder extends Seeder
      */
     public function run(): void
     {
-        $jsonString = file_get_contents("../nft.json");
+        $jsonString = file_get_contents("./nft.json");
         $jsonData = json_decode($jsonString);
 
         foreach($jsonData as $data)
