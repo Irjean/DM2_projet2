@@ -6,9 +6,9 @@
     <form action="" method="POST">
         @csrf
         <label for="name">Name</label>
-        <input id="name" name="name" type="text">
+        <input id="name" name="name" type="text" maxlength="45">
         <label for="password">Password</label>
-        <input id="password" name="password" type="password">
+        <input id="password" name="password" type="password" maxlength="255">
         @error('name')
             <span class="error-message">{{$message}}</span>
         @enderror

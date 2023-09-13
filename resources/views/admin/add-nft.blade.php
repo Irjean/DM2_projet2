@@ -10,11 +10,11 @@
     <form action="" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="title">Title</label>
-        <input id="title" name="title" type="text" required>
+        <input id="title" name="title" type="text" maxlength="45" required>
         <label for="artist">Artist</label>
-        <input id="artist" name="artist" type="text" required>
+        <input id="artist" name="artist" type="text" maxlength="45" required>
         <label for="adress">Contract adress</label>
-        <input id="adress" name="adress" type="text" required>
+        <input id="adress" name="adress" maxlength="255" type="text" required>
         <label for="standard_token">Standard token</label>
         <select id="standard_token" name="standard_token">
             <option value="ERC-721">ERC-721</option>
