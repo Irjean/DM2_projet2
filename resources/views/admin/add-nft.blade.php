@@ -3,24 +3,28 @@
 @section("content")
 <section id="add-nft-section">
     <h2>Login</h2>
-    <form action="" method="POST">
+    <div>
+        <a href="../">Nft list</a>
+        <a href="/admin">User list</a>
+    </div>
+    <form action="" method="POST" enctype="multipart/form-data">
         @csrf
-        <label for="name">Title</label>
-        <input id="name" name="name" type="text">
-        <label for="password">Artist</label>
-        <input id="password" name="password" type="password">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" required>
+        <label for="artist">Artist</label>
+        <input id="artist" name="artist" type="text" required>
         <label for="adress">Contract adress</label>
-        <input id="adress" name="adress" type="password">
-        <label for="standard-token">Standard token</label>
-        <select id="standard-token" name="standard-token">
+        <input id="adress" name="adress" type="text" required>
+        <label for="standard_token">Standard token</label>
+        <select id="standard_token" name="standard_token">
             <option value="ERC-721">ERC-721</option>
             <option value="ERC-1155">ERC-1155</option>
             <option value="ERC-998">ERC-998</option>
         </select>
         <label for="price">Price (ETC)</label>
-        <input id="price" name="price" type="password">
-        <label for="image-link">Image link</label>
-        <input id="image-link" name="image-link" type="password">
+        <input id="price" name="price" type="number" step=".01" required>
+        <label for="image">Image</label>
+        <input id="image" name="image" type="file" accept="image/*" required>
         <label for="category">Category</label>
         <select id="category" name="category">
             <option value="collectible">Collectible</option>
@@ -28,8 +32,8 @@
             <option value="utility">Utility</option>
             <option value="online-video-game">Online Video Game</option>
         </select>
-        <label for="desription">Description</label>
-        <textarea id="desription" name="desription"></textarea>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required></textarea>
         @error('name')
             <span class="error-message">{{$message}}</span>
         @enderror

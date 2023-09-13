@@ -1,6 +1,7 @@
 #login-section, #register-section{
     background-color: white;
     width: 30%;
+    min-height: 50vh;
     margin-top: 50px;
     display: flex;
     flex-direction: column;

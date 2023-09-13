@@ -49,14 +49,3 @@ Route::get("/admin/nfts", [AdminController::class, "nftList"])->middleware("auth
 Route::get("/admin/nfts/delete/{id}", [AdminController::class, "deleteNft"])->middleware("auth");
 Route::get("/admin/add-nft", [AdminController::class, "addNftPage"])->middleware("auth");
 Route::post("/admin/add-nft", [AdminController::class, "addNft"])->middleware("auth");
-
-Route::get("/test", function (){
-    return view("test");
-});
-
-Route::post("/test", function (Request $request){
-    csrf_token();
-    $file = $request->file("image");
-    $file->move("/public", $file->getClientOriginalName());
-    return back();
-});

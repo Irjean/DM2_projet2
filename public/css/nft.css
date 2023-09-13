@@ -1,16 +1,4 @@
-#nft-detail{
-    background-color: white;
-    border: 5px solid red;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    margin-top: 20px;
-    padding: 20px 0;
-    width: 50%;
-}
+
 
 #nft-detail p{
     width: 50%;

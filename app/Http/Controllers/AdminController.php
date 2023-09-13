@@ -50,13 +50,37 @@ class AdminController extends Controller
         return redirect("/");
     }
 
-    public function addNft(){
+    public function addNft(Request $request){
         csrf_token();
 
         $user = User::find(Auth::id());
 
+        
         if($user->isAdmin == 1){
-            return view("admin.add-nft");
+            $file = $request->file("image");
+            $fileName = $file->getClientOriginalName();
+            while(file_exists("../public/images/$fileName")){
+                $filePartName = pathinfo($fileName, PATHINFO_FILENAME);
+                $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+                $fileName = "$filePartName-copy.$fileExtension";
+            }
+            $filePath = "/images/$fileName";
+            $file->move("../public/images", $fileName);
+
+            $nft = new Nft();
+
+            $nft->title = $request->title;
+            $nft->artist = $request->artist;
+            $nft->adress = $request->adress;
+            $nft->standard_token = $request->standard_token;
+            $nft->price = $request->price;
+            $nft->category = $request->category;
+            $nft->description = $request->description;
+            $nft->image = $filePath;
+
+            $nft->save();
+
+            return redirect("/admin/nfts");
         }
         return redirect("/");
     }
