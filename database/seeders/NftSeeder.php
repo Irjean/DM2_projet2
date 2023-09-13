@@ -27,6 +27,7 @@ class NftSeeder extends Seeder
                 "standard_token" => $data->standard,
                 "price" => $data->prix,
                 "image" => $data->fichier,
+                "category" => $data->catégorie
             ]);
         }
 

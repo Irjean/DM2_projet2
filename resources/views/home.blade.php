@@ -16,7 +16,7 @@
         </ul>
         <div class="nft-container">
             @foreach ($nfts as $nft)
-                @include('./components/nftCard', ["nft" => $nft]);
+                @include('./components/nftCard', ["nft" => $nft])
             @endforeach
         </div>
     </section>

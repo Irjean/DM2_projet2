@@ -28,10 +28,20 @@ class NftController extends Controller
         return view("nft", ["nft" => $nft, "owner" => $owner, "cssLink" => "css/nft.css"]);
     }
 
+    public function getUserNft(){
+        $userId = Auth::id();
+        $nfts = Nft::where("user_id", $userId)->get();
+
+        return view("collection", ["nfts" => $nfts, "cssLink" => "css/collection.css"]);
+    }
+    
     public function buyNft($id){
         $nft = Nft::findOrFail($id);
-        $userId = Auth::user()->id;
-        $user = User::find($userId);
+        $user = User::find(Auth::id());
+
+        if($user == null){
+            return back()->withErrors("error", "You are not logged in");
+        }
 
         if($user->wallet > $nft->price && $nft->user_id == null){
             $nft->user_id = $user->id;
@@ -43,4 +53,22 @@ class NftController extends Controller
 
         return back()->withErrors("error", "Purchase failed");
     }
+
+    public function sellNft($id){
+        $nft = Nft::findOrFail($id);
+        $user = User::find(Auth::id());
+
+        if($user == null){
+            return back()->withErrors("error", "You are not logged in");
+        }
+
+        $user->wallet += $nft->price;
+        $nft->user_id = null;
+
+        $nft->save();
+        $user->save();
+
+        return back();
+    }
+
 }

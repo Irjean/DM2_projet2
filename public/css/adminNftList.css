@@ -1,0 +1,40 @@
+#admin-nft-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border: 5px solid red;
+    border-radius: 10px;
+    width: 80%;
+    min-height: 80vh;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+table{
+    border-spacing: 0;
+    width: 80%;
+    margin-top: 20px;
+}
+
+table tr{
+    height: 30px;
+}
+
+table tr td, table th{
+    border: 1px solid black;
+    padding-left: 5px;
+}
+
+.delete-column{
+    text-align: center;
+}
+
+.delete-btn{
+    padding: 3px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}

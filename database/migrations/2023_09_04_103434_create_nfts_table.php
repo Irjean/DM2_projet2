@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("standard_token", 10);
             $table->float("price");
             $table->string("image", 255);
+            $table->string("category", 255);
             $table->unsignedBigInteger("user_id")->nullable();
             $table->foreign('user_id')->references('id')->on('users')->nullable();
             $table->timestamps();
