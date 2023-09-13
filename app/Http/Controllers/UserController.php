@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    //Allows a user to log in
     public function authenticate(Request $request)
     {   
         csrf_token();
@@ -28,12 +29,14 @@ class UserController extends Controller
         ])->onlyInput('name');
     }
 
+    //Logs out the current current logged in user
     public function logout() {
         Auth::logout();
 
         return redirect()->intended("");        
     }
 
+    //Add a new user to the database
     public function register(Request $request) {
 
         $user = new User();

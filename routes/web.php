@@ -23,29 +23,25 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 Route::get('/', [NftController::class, "getAll"])->name("home");
 
+//NFT Related
 Route::get('/tag/{id}', [NftController::class, "getTag"]);
-
 Route::get("/nft/{id}", [NftController::class, "getOne"]);
-
 Route::get("/nft/{id}/buy", [NftController::class, "buyNft"])->middleware('auth');
 Route::get("/nft/{id}/sell", [NftController::class, "sellNft"])->middleware('auth');
-
 Route::get("/collection", [NftController::class, "getUserNft"])->middleware('auth');
 
+//User related
 Route::get("/login", function () {
     return view("login", ["cssLink" => "css/auth.css"]);
 });
-
 Route::post("/login", [UserController::class, 'authenticate']);
-
 Route::get("/logout", [UserController::class, 'logout']);
-
 Route::get("register", function () {
     return view("register", ["cssLink" => 'css/auth.css']);
 });
-
 Route::post("register", [UserController::class, "register"]);
 
+//Admin Routes
 Route::get("/admin", [AdminController::class, "home"])->middleware("auth");
 Route::get("/admin/nfts", [AdminController::class, "nftList"])->middleware("auth");
 Route::get("/admin/nfts/delete/{id}", [AdminController::class, "deleteNft"])->middleware("auth");

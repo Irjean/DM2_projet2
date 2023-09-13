@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    //Returns the admin main page with all users registered if the user have admin rights
     public function home(){
         $user = User::find(Auth::id());
         $users = User::all();
@@ -20,6 +21,7 @@ class AdminController extends Controller
         return redirect("/");
     }
 
+    //Show all NFT created
     public function nftList(){
         $nfts = Nft::all();
         $user = User::find(Auth::id());
@@ -31,6 +33,7 @@ class AdminController extends Controller
         return redirect("/");
     }
 
+    //Allow to remove a NFT from the database
     public function deleteNft($id){
         $user = User::find(Auth::id());
 
@@ -41,6 +44,7 @@ class AdminController extends Controller
         return redirect("/");
     }
 
+    //Return the page to create a new NFT
     public function addNftPage(){
         $user = User::find(Auth::id());
 
@@ -50,6 +54,7 @@ class AdminController extends Controller
         return redirect("/");
     }
 
+    //Add a new NFT to the database
     public function addNft(Request $request){
         csrf_token();
 

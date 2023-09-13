@@ -9,6 +9,7 @@ class Nft extends Model
 {
     use HasFactory;
     
+    //One NFT have one user
     public function user(){
         return $this->hasOne(User::class);
     }

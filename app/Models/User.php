@@ -41,6 +41,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    //One user can have many NFTs
     public function nfts(){
         return $this->hasMany(Nft::class);
     }
