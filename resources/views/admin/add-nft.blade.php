@@ -2,7 +2,7 @@
 
 @section("content")
 <section id="add-nft-section">
-    <h2>Login</h2>
+    <h2>Add new NFT</h2>
     <div>
         <a href="../">Nft list</a>
         <a href="/admin">User list</a>

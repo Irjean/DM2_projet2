@@ -18,6 +18,16 @@ class NftController extends Controller
         return view('home', ["nfts" => $nfts]);
     }
 
+    public function getTag($id){
+        $nfts = Nft::where("category", $id)->get();
+
+        if($nfts == null){
+            return back();
+        }
+
+        return view('home', ["nfts" => $nfts]);
+    }
+
     public function getOne($id) {
         $nft = Nft::findOrFail($id);
         $owner = User::find($nft->user_id);

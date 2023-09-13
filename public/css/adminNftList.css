@@ -25,4 +25,9 @@ table tr td, table th{
     color: white;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.disabled{
+    background-color: gray;
 }

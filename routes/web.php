@@ -23,6 +23,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 Route::get('/', [NftController::class, "getAll"])->name("home");
 
+Route::get('/tag/{id}', [NftController::class, "getTag"]);
+
 Route::get("/nft/{id}", [NftController::class, "getOne"]);
 
 Route::get("/nft/{id}/buy", [NftController::class, "buyNft"])->middleware('auth');

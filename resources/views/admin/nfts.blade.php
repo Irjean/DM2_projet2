@@ -21,9 +21,11 @@
                 @foreach($nfts as $nft)
                 @php
                 $owner = "nobody";
+                $hasOwner = false;
                     foreach ($users as $user) {
                         if($user->id == $nft->user_id){
                             $owner = $user->name;
+                            $hasOwner = true;
                         }
                     }
                 @endphp
@@ -33,7 +35,7 @@
                         <td>{{$owner}}</td>
                         <td>{{$nft->price}}</td>
                         <td>{{$nft->category}}</td>
-                        <td class="delete-column"><a href="./nfts/delete/{{$nft->id}}"><button class="delete-btn">Delete</button></a></td>
+                        <td class="delete-column"><a href="./nfts/delete/{{$nft->id}}"><button @class(["delete-btn", "disabled" => ! $hasOwner])>Delete</button></a></td>
                     </tr>
                 @endforeach
             </tbody>

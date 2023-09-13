@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 header{
@@ -93,6 +94,10 @@ section{
 .tag-list li{
     padding: 0 5px;
     border-left: 1px solid black;
+}
+
+.tag-list li:hover{
+    font-weight: 700;
 }
 
 .tag-list li:first-child{
